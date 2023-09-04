@@ -10,16 +10,17 @@ import { Route, Routes } from 'react-router-dom'
 
 
 function App() {
-  const [cocktails, setCocktails] = useState([])
   const [search, setSearch] = useState("")
+  const [cocktails, setCocktails] = useState([])
+
 
   const handleSearch = (e) => {
     e.preventDefault()
     fetch(`https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${search}`)
     .then(resp => resp.json())
-    .then(json => {
-      setCocktails(json)
-      console.log(json)
+    .then(data => {
+      setCocktails(data.drinks)
+      console.log(cocktails)
     })
     .catch((error) => {
       console.error(`There seems to be a ${error}`)
@@ -31,6 +32,7 @@ function App() {
   }
 
 
+
   return (<>
     <NavBar/>
     <div className="container">
@@ -38,10 +40,11 @@ function App() {
           <Route path="/" element={<Home/>}/>
           <Route path="/about" element={<About/>}/>
           <Route path="/search" element={<Search
+          cocktails={cocktails}
           handleSearch={handleSearch}
           handleChange={handleChange}
           search={search}
-          cocktails={cocktails}
+          
           
           
           />}/>
