@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import CreatedDrinks from "./CreatedDrinks";
 
 const Form = () => {
@@ -17,11 +17,26 @@ const Form = () => {
     directions: "",
     imageUrl: "",
   });
+  const [getCocktails, setGetCocktails] = useState(true) //state to trigger refetching of cocktails after submitting the form
+  const [addDrink, setAddDrink] = useState([]); //state to manage adding a drink when the db.json file is empty
+  const [cocktails, setCocktails] = useState([])    //state to manage the new cocktails being created
+  
 
-  const [addDrinks, setAddDrinks] = useState([]);
+
+
+ 
+  useEffect(() => {             
+  if (getCocktails) {
+      fetch('http://localhost:3000/createdDrinks')
+      .then(resp => resp.json())
+      .then(setCocktails)
+      setGetCocktails(false)}   //setting getCocktails to false will prevent continous fetching, avoiding an infinite loop
+  }, [getCocktails])
+
+
 
 function addNewDrink (newDrink) {
-  setAddDrinks([...addDrinks, newDrink])
+  setAddDrink([...addDrink, newDrink])
 }
 
   const handleFormSubmit = (e) => {
@@ -42,7 +57,7 @@ function addNewDrink (newDrink) {
       imageUrl: formData.imageUrl,
     };
 
-    fetch("http://localhost:3500/createdDrinks", {
+    fetch("http://localhost:3000/createdDrinks", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -50,10 +65,29 @@ function addNewDrink (newDrink) {
       body: JSON.stringify(newDrink),
     })
       .then((response) => response.json())
-      .then((data) => addNewDrink(data))
+      .then((data) => {
+      addNewDrink(data);
+      setGetCocktails(true) //setting getCocktails to true will trigger re-fetch to immediately render updated cocktail data
+  })
       .catch((error) => {
         console.error(`Error adding drinks: ${error}`);
+        
       });
+      setFormData({ //resetting form after submission
+        name: "",
+        ingredientOne: "",
+        measurementOne: "",
+        ingredientTwo: "",
+        measurementTwo: "",
+        ingredientThree: "",
+        measurementThree: "",
+        ingredientFour: "",
+        measurementFour: "",
+        ingredientFive: "",
+        measurementFive: "",
+        directions: "",
+        imageUrl: "",
+      })
   };
 
   const handleInputChange = (e) => {
@@ -61,11 +95,13 @@ function addNewDrink (newDrink) {
     setFormData({ ...formData, [name]: value });
   };
 
+
   return (
     <div>
       <h1>Form Page</h1>
       <form onSubmit={handleFormSubmit}>
       <table>
+        <tbody>
         <tr>
           <td>
             <label>
@@ -222,10 +258,11 @@ function addNewDrink (newDrink) {
             </label>
           </td>
         </tr>
+        </tbody>
         </table>
         <button type="submit">Add Drink</button>
       </form>
-      <CreatedDrinks addDrinks={addDrinks}/>
+      <CreatedDrinks cocktails={cocktails}/>
     </div>
   );
 };
