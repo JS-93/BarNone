@@ -1,36 +1,48 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 
 const NewDrinkCard = ({ cocktail }) => {
   const [isFlipped, setIsFlipped] = useState(false);
+
 
   const handleClick = () => {
     setIsFlipped(!isFlipped);
   };
 
-  const { strDrink, strDrinkThumb } = cocktail;
+  const {
+    name,
+    ingredientOne,
+    measurementOne,
+    ingredientTwo,
+    measurementTwo,
+    ingredientThree,
+    measurementThree,
+    ingredientFour,
+    measurementFour,
+    ingredientFive,
+    measurementFive,
+    directions,
+    imageUrl,
+  } = cocktail;
 
-  const ingredients = [];
-
-  for (let i = 1; i <= 15; i++) {
-    const ingredient = cocktail[`strIngredient${i}`];
-    const measure = cocktail[`strMeasure${i}`];
-
-    if (ingredient) {
-      ingredients.push({ ingredient, measure });
-    }
-  }
+  const ingredients = [
+    { ingredient: ingredientOne, measure: measurementOne },
+    { ingredient: ingredientTwo, measure: measurementTwo },
+    { ingredient: ingredientThree, measure: measurementThree },
+    { ingredient: ingredientFour, measure: measurementFour },
+    { ingredient: ingredientFive, measure: measurementFive },
+  ];
 
   return (
-    <div className={`card ${isFlipped ? 'flipped' : ''}`}>
+    <div className={`card ${isFlipped ? "flipped" : ""}`}>
       <div className="card-front">
-        <h3>{strDrink}</h3>
-        <img src={strDrinkThumb} alt={strDrink} />
+        <h3>{name}</h3>
+        <img src={imageUrl} alt={name} />
         <button className="flipButton" onClick={handleClick}>
           Flip For More Info
         </button>
       </div>
       <div className="card-back">
-        <h3>{strDrink}</h3>
+        <h3>{name}</h3>
         <ul>
           {ingredients.map(({ ingredient, measure }, index) => (
             <li key={index}>
@@ -38,7 +50,7 @@ const NewDrinkCard = ({ cocktail }) => {
             </li>
           ))}
         </ul>
-        <p>{cocktail.strInstructions}</p>
+        <p>{directions}</p>
         <button className="flipButton" onClick={handleClick}>
           Flip Back
         </button>
