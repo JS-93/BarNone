@@ -17,6 +17,12 @@ const Form = () => {
     imageUrl: "",
   });
 
+  const [addDrink, setAddDrink] = useState([]);
+
+function addNewDrink (newDrink) {
+  setAddDrink([...addDrink, newDrink])
+}
+
   const handleFormSubmit = (e) => {
     e.preventDefault();
     const newDrink = {
@@ -35,7 +41,7 @@ const Form = () => {
       imageUrl: formData.imageUrl,
     };
 
-    fetch("", {
+    fetch("http://localhost:3000/createdDrinks", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -43,23 +49,7 @@ const Form = () => {
       body: JSON.stringify(newDrink),
     })
       .then((response) => response.json())
-      .then((data) => {
-        console.log("New drink added:", data);
-      
-        setFormData({ name: "",  
-        ingredientOne: "",
-        measurementOne: "",
-        ingredientTwo: "",
-        measurementTwo: "",
-        ingredientThree: "",
-        measurementThree: "",
-        ingredientFour: "",
-        measurementFour: "",
-        ingredientFive: "",
-        measurementFive: "",
-        directions: "",
-        imageUrl: "",});
-      })
+      .then((data) => addNewDrink(data))
       .catch((error) => {
         console.error(`Error adding drinks: ${error}`);
       });
