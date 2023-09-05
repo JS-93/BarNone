@@ -1,15 +1,18 @@
 import React from "react";
-import NewDrinkCard from "./NewDrinkCard";
+import NewDrinkCard from "./NewDrinknCard";
 
-const CreatedDrinks = ({addDrinks}) => {
-  const showCreated = () => { addDrinks.map((cocktail)=>
-<NewDrinkCard key={cocktail.id} cocktail={cocktail}/>)}
+const CreatedDrinks = ({cocktails}) => {
+  
 
-return (
-  <>
-      <h1>Created Drinks</h1>
-      {showCreated()}
-  </>
+
+
+  const showCreated =  cocktails.map((cocktail)=> (
+ <NewDrinkCard key={cocktail.id} cocktail={cocktail}/>))
+
+return (<><h1>Created Drinks</h1>
+  <div className='cardContainer'>
+      {showCreated}
+  </div></>
 )
 }
 
