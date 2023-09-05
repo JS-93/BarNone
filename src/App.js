@@ -10,21 +10,30 @@ import { Route, Routes } from 'react-router-dom'
 
 
 function App() {
-  const [search, setSearch] = useState("")
+  const [search, setSearch] = useState(null)
   const [cocktails, setCocktails] = useState([])
+  const [searchMade, setSearchMade] = useState(false)
+
 
 
   const handleSearch = (e) => {
     e.preventDefault()
+    
     fetch(`https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${search}`)
     .then(resp => resp.json())
     .then(data => {
+      if (data.drinks === null) {
+        setCocktails([])
+        console.log('Cocktail not found')
+      } else {
       setCocktails(data.drinks)
       console.log(cocktails)
+      }
     })
     .catch((error) => {
       console.error(`There seems to be a ${error}`)
     })
+    setSearchMade(true)
   }
 
   const handleChange = (e) => {
@@ -44,6 +53,8 @@ function App() {
           handleSearch={handleSearch}
           handleChange={handleChange}
           search={search}
+          searchMade={searchMade}
+          
           
           
           
