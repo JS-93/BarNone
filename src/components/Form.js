@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import CreatedDrinks from "./CreatedDrinks";
 
 const Form = () => {
   const [formData, setFormData] = useState({
@@ -224,6 +225,7 @@ function addNewDrink (newDrink) {
         </table>
         <button type="submit">Add Drink</button>
       </form>
+      <CreatedDrinks/>
     </div>
   );
 };
