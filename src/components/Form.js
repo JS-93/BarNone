@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import CreatedDrinks from "./CreatedDrinks";
+import NewDrinkCard from "./NewDrinkCard";
 
 const Form = () => {
   const [formData, setFormData] = useState({
@@ -19,28 +20,16 @@ const Form = () => {
   });
 
   const [addDrinks, setAddDrinks] = useState([]);
+  const [newDrinkCard, setNewDrinkCard] = useState(null);
 
 function addNewDrink (newDrink) {
+  setNewDrinkCard(newDrink)
   setAddDrinks([...addDrinks, newDrink])
 }
 
   const handleFormSubmit = (e) => {
     e.preventDefault();
-    const newDrink = {
-      name: formData.name,
-      ingredientOne: formData.ingredientOne, 
-      measurementOne: formData.measurementOne,
-      ingredientTwo: formData.ingredientTwo, 
-      measurementTwo: formData.measurementTwo, 
-      ingredientThree: formData.ingredientThree, 
-      measurementThree: formData.measurementThree, 
-      ingredientFour: formData.ingredientFour,
-      measurementFour: formData.measurementFour,
-      ingredientFive: formData.ingredientFive,
-      measurementFive: formData.measurementFive,
-      directions: formData.directions,
-      imageUrl: formData.imageUrl,
-    };
+    const newDrink = {...formData};
 
     fetch("http://localhost:3500/createdDrinks", {
       method: "POST",
@@ -225,7 +214,12 @@ function addNewDrink (newDrink) {
         </table>
         <button type="submit">Add Drink</button>
       </form>
-      <CreatedDrinks addDrinks={addDrinks}/>
+      <CreatedDrinks addDrinks={addDrinks} />
+      {newDrinkCard && (
+        <div>
+          <NewDrinkCard cocktail={newDrinkCard} />
+        </div>
+      )}
     </div>
   );
 };
