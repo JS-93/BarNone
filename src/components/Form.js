@@ -21,6 +21,7 @@ const Form = () => {
 
   const [addDrinks, setAddDrinks] = useState([]);
   const [newDrinkCard, setNewDrinkCard] = useState(null);
+  
 
 function addNewDrink (newDrink) {
   setNewDrinkCard(newDrink)
@@ -29,7 +30,21 @@ function addNewDrink (newDrink) {
 
   const handleFormSubmit = (e) => {
     e.preventDefault();
-    const newDrink = {...formData};
+    const newDrink = {
+      name: formData.name,
+      ingredientOne: formData.ingredientOne, 
+      measurementOne: formData.measurementOne,
+      ingredientTwo: formData.ingredientTwo, 
+      measurementTwo: formData.measurementTwo, 
+      ingredientThree: formData.ingredientThree, 
+      measurementThree: formData.measurementThree, 
+      ingredientFour: formData.ingredientFour,
+      measurementFour: formData.measurementFour,
+      ingredientFive: formData.ingredientFive,
+      measurementFive: formData.measurementFive,
+      directions: formData.directions,
+      imageUrl: formData.imageUrl,
+    };
 
     fetch("http://localhost:3500/createdDrinks", {
       method: "POST",
@@ -217,6 +232,7 @@ function addNewDrink (newDrink) {
       <CreatedDrinks addDrinks={addDrinks} />
       {newDrinkCard && (
         <div>
+          <h2>Your Cocktails</h2>
           <NewDrinkCard cocktail={newDrinkCard} />
         </div>
       )}
