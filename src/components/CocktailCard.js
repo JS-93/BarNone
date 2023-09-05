@@ -21,13 +21,6 @@ for (let i=1; i<=15; i++) {
     }
 }
 
-
-
-  
-
-   
-    
-
     return(<div className={`card ${isFlipped ? 'flipped' : ''}`}>
         
         

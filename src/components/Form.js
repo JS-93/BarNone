@@ -1,20 +1,48 @@
 import React, { useState } from "react";
+import CreatedDrinks from "./CreatedDrinks";
 
 const Form = () => {
   const [formData, setFormData] = useState({
     name: "",
-    ingredients: "",
+    ingredientOne: "",
+    measurementOne: "",
+    ingredientTwo: "",
+    measurementTwo: "",
+    ingredientThree: "",
+    measurementThree: "",
+    ingredientFour: "",
+    measurementFour: "",
+    ingredientFive: "",
+    measurementFive: "",
+    directions: "",
+    imageUrl: "",
   });
+
+  const [addDrinks, setAddDrinks] = useState([]);
+
+function addNewDrink (newDrink) {
+  setAddDrinks([...addDrinks, newDrink])
+}
 
   const handleFormSubmit = (e) => {
     e.preventDefault();
     const newDrink = {
-      strDrink: formData.name,
-      strIngredient1: formData.ingredients,
-    
+      name: formData.name,
+      ingredientOne: formData.ingredientOne, 
+      measurementOne: formData.measurementOne,
+      ingredientTwo: formData.ingredientTwo, 
+      measurementTwo: formData.measurementTwo, 
+      ingredientThree: formData.ingredientThree, 
+      measurementThree: formData.measurementThree, 
+      ingredientFour: formData.ingredientFour,
+      measurementFour: formData.measurementFour,
+      ingredientFive: formData.ingredientFive,
+      measurementFive: formData.measurementFive,
+      directions: formData.directions,
+      imageUrl: formData.imageUrl,
     };
 
-    fetch("", {
+    fetch("http://localhost:3500/createdDrinks", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -22,11 +50,7 @@ const Form = () => {
       body: JSON.stringify(newDrink),
     })
       .then((response) => response.json())
-      .then((data) => {
-        console.log("New drink added:", data);
-      
-        setFormData({ name: "", ingredients: "" });
-      })
+      .then((data) => addNewDrink(data))
       .catch((error) => {
         console.error(`Error adding drinks: ${error}`);
       });
@@ -41,25 +65,167 @@ const Form = () => {
     <div>
       <h1>Form Page</h1>
       <form onSubmit={handleFormSubmit}>
-        <label>
-          Drink Name:
+      <table>
+        <tr>
+          <td>
+            <label>
+             Drink Name:
+            </label>
           <input
             type="text"
             name="name"
             value={formData.name}
             onChange={handleInputChange}
           />
-        </label>
-        <label>
-          Ingredients:
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <label>
+          Ingredient One:
           <textarea
-            name="ingredients"
-            value={formData.ingredients}
+            name="ingredientOne"
+            value={formData.ingredientOne}
             onChange={handleInputChange}
           />
-        </label>
+            </label>
+         </td>
+        </tr>
+        <tr>
+          <td>
+            <label>
+          Measurement One:
+          <textarea
+            name="measurementOne"
+            value={formData.measurementOne}
+            onChange={handleInputChange}
+          />
+            </label>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <label>
+          Ingredient Two:
+          <textarea
+            name="ingredientTwo"
+            value={formData.ingredientTwo}
+            onChange={handleInputChange}
+          />
+            </label>
+         </td>
+        </tr>
+        <tr>
+          <td>
+            <label>
+          Measurement Two:
+          <textarea
+            name="measurementTwo"
+            value={formData.measurementTwo}
+            onChange={handleInputChange}
+          />
+            </label>
+          </td>
+        </tr>
+         <tr>
+          <td>
+            <label>
+          Ingredient Three:
+          <textarea
+            name="ingredientThree"
+            value={formData.ingredientThree}
+            onChange={handleInputChange}
+          />
+            </label>
+         </td>
+        </tr>
+        <tr>
+          <td>
+            <label>
+          Measurement Three:
+          <textarea
+            name="measurementThree"
+            value={formData.measurementThree}
+            onChange={handleInputChange}
+          />
+            </label>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <label>
+          Ingredient Four:
+          <textarea
+            name="ingredientFour"
+            value={formData.ingredientFour}
+            onChange={handleInputChange}
+          />
+            </label>
+         </td>
+        </tr>
+        <tr>
+          <td>
+            <label>
+          Measurement Four:
+          <textarea
+            name="measurementFour"
+            value={formData.measurementFour}
+            onChange={handleInputChange}
+          />
+            </label>
+          </td>
+        </tr><tr>
+          <td>
+            <label>
+          Ingredient Five:
+          <textarea
+            name="ingredientFive"
+            value={formData.ingredientFive}
+            onChange={handleInputChange}
+          />
+            </label>
+         </td>
+        </tr>
+        <tr>
+          <td>
+            <label>
+          Measurement Five:
+          <textarea
+            name="measurementFive"
+            value={formData.measurementFive}
+            onChange={handleInputChange}
+          />
+            </label>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <label>
+          Directions:
+          <textarea
+            name="directions"
+            value={formData.directions}
+            onChange={handleInputChange}
+          />
+            </label>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <label>
+          ImageUrl:
+          <textarea
+            name="imageUrl"
+            value={formData.imageUrl}
+            onChange={handleInputChange}
+          />
+            </label>
+          </td>
+        </tr>
+        </table>
         <button type="submit">Add Drink</button>
       </form>
+      <CreatedDrinks addDrinks={addDrinks}/>
     </div>
   );
 };
