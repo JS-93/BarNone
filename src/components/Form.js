@@ -62,16 +62,18 @@ function addNewDrink (newDrink) {
   };
 
   return (
-    <div>
-      <h1>Form Page</h1>
-      <form onSubmit={handleFormSubmit}>
-      <table>
-        <tr>
+    <div className="formDiv">
+      <h1>Create Your Own Drink!</h1>
+      <form onSubmit={handleFormSubmit} className="form">
+      <table className="table">
+        <tr className="tableRow">
           <td>
             <label>
              Drink Name:
             </label>
-          <input
+          </td>
+          <td>
+           <input
             type="text"
             name="name"
             value={formData.name}
@@ -79,149 +81,195 @@ function addNewDrink (newDrink) {
           />
           </td>
         </tr>
-        <tr>
+        <tr className="tableRow">
+          <td>
+            <label>
+          ImageUrl:
+          </label>
+          </td>
+          <td>
+          <input
+            type="text"
+            name="imageUrl"
+            value={formData.imageUrl}
+            onChange={handleInputChange}
+          />
+          </td>
+        </tr>
+        <tr className="tableRow">
           <td>
             <label>
           Ingredient One:
-          <textarea
+          </label>
+          </td>
+          <td>
+          <input
+            type="text"
             name="ingredientOne"
             value={formData.ingredientOne}
             onChange={handleInputChange}
           />
-            </label>
          </td>
         </tr>
-        <tr>
+        <tr className="tableRow">
           <td>
             <label>
           Measurement One:
-          <textarea
+          </label>
+          </td>
+          <td>
+          <input
+            type="text"
             name="measurementOne"
             value={formData.measurementOne}
             onChange={handleInputChange}
           />
-            </label>
           </td>
         </tr>
-        <tr>
+        <tr className="tableRow">
           <td>
             <label>
           Ingredient Two:
-          <textarea
+          </label>
+          </td>
+          <td>
+          <input
+            type="text"
             name="ingredientTwo"
             value={formData.ingredientTwo}
             onChange={handleInputChange}
           />
-            </label>
+            
          </td>
         </tr>
-        <tr>
+        <tr className="tableRow">
           <td>
             <label>
           Measurement Two:
-          <textarea
+          </label>
+          </td>
+          <td>
+          <input
+            type="text"
             name="measurementTwo"
             value={formData.measurementTwo}
             onChange={handleInputChange}
           />
-            </label>
+            
           </td>
         </tr>
-         <tr>
+        <tr className="tableRow">
           <td>
             <label>
           Ingredient Three:
-          <textarea
+          </label>
+          </td>
+          <td>
+          <input
+            type="text"
             name="ingredientThree"
             value={formData.ingredientThree}
             onChange={handleInputChange}
           />
-            </label>
+            
          </td>
         </tr>
-        <tr>
+        <tr className="tableRow">
           <td>
             <label>
           Measurement Three:
-          <textarea
+          </label>
+          </td>
+          <td>
+          <input
+            type="text"
             name="measurementThree"
             value={formData.measurementThree}
             onChange={handleInputChange}
           />
-            </label>
+            
           </td>
         </tr>
-        <tr>
+        <tr className="tableRow">
           <td>
             <label>
           Ingredient Four:
-          <textarea
+          </label>
+          </td>
+          <td>
+          <input
+            type="text"
             name="ingredientFour"
             value={formData.ingredientFour}
             onChange={handleInputChange}
           />
-            </label>
+            
          </td>
         </tr>
-        <tr>
+        <tr className="tableRow">
           <td>
             <label>
           Measurement Four:
-          <textarea
+          </label>
+          </td>
+          <td>
+          <input
+            type="text"
             name="measurementFour"
             value={formData.measurementFour}
             onChange={handleInputChange}
           />
-            </label>
+            
           </td>
-        </tr><tr>
+        </tr>
+        <tr className="tableRow">
           <td>
             <label>
           Ingredient Five:
-          <textarea
+          </label>
+          </td>
+          <td>
+          <input
+            type="text"
             name="ingredientFive"
             value={formData.ingredientFive}
             onChange={handleInputChange}
           />
-            </label>
+           
          </td>
         </tr>
-        <tr>
+        <tr className="tableRow">
           <td>
             <label>
           Measurement Five:
-          <textarea
+          </label>
+          </td>
+          <td>
+          <input
+            type="text"
             name="measurementFive"
             value={formData.measurementFive}
             onChange={handleInputChange}
           />
-            </label>
+            
           </td>
         </tr>
-        <tr>
+        <tr className="tableRow">
           <td>
             <label>
           Directions:
+          </label>
+          </td>
+          <td>
           <textarea
             name="directions"
             value={formData.directions}
             onChange={handleInputChange}
           />
-            </label>
+            
           </td>
         </tr>
-        <tr>
-          <td>
-            <label>
-          ImageUrl:
-          <textarea
-            name="imageUrl"
-            value={formData.imageUrl}
-            onChange={handleInputChange}
-          />
-            </label>
-          </td>
-        </tr>
+        
         </table>
         <button type="submit">Add Drink</button>
       </form>
