@@ -25,7 +25,7 @@ for (let i=1; i<=15; i++) {
         
         
         <div className="card-front">
-        <h3>{strDrink}</h3>
+        <h3 >{strDrink}</h3>
         <img src={strDrinkThumb} alt={strDrink}/>
         <button className="flipButton" onClick={handleClick}>Flip For More Info</button>
         </div>
@@ -47,9 +47,6 @@ for (let i=1; i<=15; i++) {
 
 
 export default CocktailCard
-
-
-
 
 
 
