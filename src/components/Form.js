@@ -21,7 +21,7 @@ const Form = () => {
   });
   const [getCocktails, setGetCocktails] = useState(true) //state to trigger refetching of cocktails after submitting the form
   const [addDrink, setAddDrink] = useState([]); //state to manage adding a drink when the db.json file is empty
-  const [cocktails, setCocktails] = useState([]);    //state to manage the new cocktails being created
+  const [cocktails, setCocktails] = useState([])    //state to manage the new cocktails being created
   const [isFormVisible, setIsFormVisible] = useState(true);
 
 
@@ -29,7 +29,7 @@ const Form = () => {
  
   useEffect(() => {             
   if (getCocktails) {
-      fetch('http://localhost:3500/createdDrinks')
+      fetch('http://localhost:3000/createdDrinks')
       .then(resp => resp.json())
       .then(setCocktails)
       setGetCocktails(false)}   //setting getCocktails to false will prevent continous fetching, avoiding an infinite loop
@@ -59,7 +59,8 @@ function addNewDrink (newDrink) {
       imageUrl: formData.imageUrl,
     };
 
-    fetch("http://localhost:3500/createdDrinks", {
+
+    fetch("http://localhost:3000/createdDrinks", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -92,31 +93,12 @@ function addNewDrink (newDrink) {
       })
   };
 
+
+
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
   };
-
-const toggleFormVisible = () => {
-  setIsFormVisible(!isFormVisible);
-  if (!isFormVisible) {
-    setFormData({
-      name: "",
-      ingredientOne: "",
-      measurementOne: "",
-      ingredientTwo: "",
-      measurementTwo: "",
-      ingredientThree: "",
-      measurementThree: "",
-      ingredientFour: "",
-      measurementFour: "",
-      ingredientFive: "",
-      measurementFive: "",
-      directions: "",
-      imageUrl: "",
-    });
-  }
-};
 
 
   const getRandomIngredient = () => {
@@ -199,7 +181,7 @@ const populateWhiskey = () => {
     measurementFour: getRandomWNumber(),
     ingredientFive: getRandomWhiskey(),
     measurementFive: getRandomWNumber(),
-    directions: "Shake well and enjoy...",
+    directions: "Stir well and enjoy...",
     imageUrl: "https://assets.epicurious.com/photos/5e41a6d175661800087cc87c/16:9/w_4619,h_2598,c_limit/OldFashioned_HERO_020520_619.jpg",
 
     }
@@ -284,7 +266,7 @@ const getRandomMocktail = () => {
 const populateMocktail = () => {
     const randomData = {
         name: "Mocktail Drink",
-    ingredientOne: "Mocktail",
+    ingredientOne: getRandomMocktail(),
     measurementOne: getRandomMeasurement(),
     ingredientTwo: getRandomMocktail(),
     measurementTwo: getRandomMeasurement(),
@@ -300,29 +282,35 @@ const populateMocktail = () => {
     setFormData(randomData)
 }
 
+function handleDelete (drinkToDelete) {
+  const updatedDrinks = cocktails.filter((c) =>
+  c.id !== drinkToDelete.id);
+  setCocktails(updatedDrinks)
+}
 
+const toggleForm = () => {
+  setIsFormVisible(!isFormVisible)
+}
 
 
   return (
-    <div>
-    <button onClick={toggleFormVisible}>
-      {isFormVisible ? "Hide Form" : "Show Form"}
-    </button>
-    {isFormVisible && (
-      <div>
-        {/* Wrap all the buttons within a container div */}
-        <div>
-          <button onClick={populateData}>Roll the Dice</button>
-          <button onClick={populateVodka}>Vodka Drink</button>
-          <button onClick={populateWhiskey}>Whiskey Drink</button>
-          <button onClick={populateGin}>Gin Drink</button>
-          <button onClick={populateRum}>Rum Drink</button>
-          <button onClick={populateTequila}>Tequila Drink</button>
-          <button onClick={populateMocktail}>Mocktail Drink</button>
-        </div>
-      <h1>Form Page</h1>
-      <form onSubmit={handleFormSubmit}>
-      <table>
+    <div className="formPage">
+      <button className="drinkButton" onClick={toggleForm}>{isFormVisible? "Hide Form" : "Show Form"}</button>
+      {isFormVisible ? (
+        
+        <div className="randomButtons">
+        <button className="drinkButton" onClick={populateData}>Roll the Dice</button> 
+        <button className="drinkButton" onClick={populateVodka}>Vodka Drink</button> 
+        <button className="drinkButton" onClick={populateWhiskey}>Whiskey Drink</button> 
+        <button className="drinkButton" onClick={populateGin}>Gin Drink</button> 
+        <button className="drinkButton" onClick={populateRum}>Rum Drink</button> 
+        <button className="drinkButton" onClick={populateTequila}>Tequila Drink</button> 
+        <button className="drinkButton" onClick={populateMocktail}>Mocktail Drink</button> 
+        </div>) : null}
+        {isFormVisible? (
+      <form onSubmit={handleFormSubmit} >
+        <h1 className="formHeader">Create Your Own Drink!</h1>
+      <table className="tableText">
         <tbody>
         <tr>
           <td>
@@ -483,15 +471,11 @@ const populateMocktail = () => {
         </tbody>
         </table>
         <button type="submit">Add Drink</button>
-      </form>
-      </div>
-    )}
-      <CreatedDrinks cocktails={cocktails}/>
+      </form>) : null} 
+      <CreatedDrinks cocktails={cocktails} setCocktails={setCocktails} onDelete={handleDelete}/>
     </div>
   );
 };
 
 export default Form;
-
-
 
