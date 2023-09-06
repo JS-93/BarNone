@@ -1,12 +1,21 @@
 import React, { useState } from "react";
 
-const NewDrinkCard = ({ cocktail }) => {
+
+const NewDrinkCard = ({ cocktail, onDelete }) => {
   const [isFlipped, setIsFlipped] = useState(false);
 
 
   const handleClick = () => {
     setIsFlipped(!isFlipped);
   };
+
+const deleteDrink = () => {
+
+  fetch(`http://localhost:3000/createdDrinks/${cocktail.id}`, {
+    method: "DELETE"})
+    .then((r) => r.json())
+    .then(() => onDelete(cocktail))
+}
 
   const {
     name,
@@ -35,11 +44,12 @@ const NewDrinkCard = ({ cocktail }) => {
   return (
     <div className={`card ${isFlipped ? "flipped" : ""}`}>
       <div className="card-front">
-        <h3>{name}</h3>
+        <h3 className="drinkName" >{name}</h3>
         <img src={imageUrl} alt={name} />
         <button className="flipButton" onClick={handleClick}>
           Flip For More Info
         </button>
+        <button className="deleteButton" onClick={deleteDrink}> Delete 🗑️</button>
       </div>
       <div className="card-back">
         <h3>{name}</h3>
@@ -54,6 +64,7 @@ const NewDrinkCard = ({ cocktail }) => {
         <button className="flipButton" onClick={handleClick}>
           Flip Back
         </button>
+          <button className="deleteButton" onClick={deleteDrink}> Delete 🗑️</button>  
       </div>
     </div>
   );
