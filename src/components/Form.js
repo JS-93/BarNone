@@ -28,6 +28,16 @@ function addNewDrink (newDrink) {
   setAddDrinks([...addDrinks, newDrink])
 }
 
+const handleDelete = (drinkToDelete) => {
+
+  const updatedAddDrinks = addDrinks.filter((drink) => drink !== drinkToDelete);
+  setAddDrinks(updatedAddDrinks);
+
+  if (newDrinkCard === drinkToDelete) {
+    setNewDrinkCard(null);
+  }
+};
+
   const handleFormSubmit = (e) => {
     e.preventDefault();
     const newDrink = {
@@ -64,6 +74,7 @@ function addNewDrink (newDrink) {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
   };
+
 
   return (
     <div>
@@ -233,7 +244,7 @@ function addNewDrink (newDrink) {
       {newDrinkCard && (
         <div>
           <h2>Your Cocktails</h2>
-          <NewDrinkCard cocktail={newDrinkCard} />
+          <NewDrinkCard cocktail={newDrinkCard} onDelete={handleDelete}/>
         </div>
       )}
     </div>

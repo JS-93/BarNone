@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const NewDrinkCard = ({ cocktail }) => {
+const NewDrinkCard = ({ cocktail, onDelete }) => {
   const [isFlipped, setIsFlipped] = useState(false);
 
   const handleClick = () => {
@@ -31,6 +31,10 @@ const NewDrinkCard = ({ cocktail }) => {
     { ingredient: ingredientFive, measure: measurementFive },
   ];
 
+  const handleDelete = () => {
+    onDelete(cocktail);
+  };
+
   return (
     <div className={`card ${isFlipped ? "flipped" : ""}`}>
       <div className="card-front">
@@ -38,6 +42,9 @@ const NewDrinkCard = ({ cocktail }) => {
         <img src={imageUrl} alt={name} />
         <button className="flipButton" onClick={handleClick}>
           Flip For More Info
+        </button>
+        <button className="deleteButton" onClick={handleDelete}>
+          Delete
         </button>
       </div>
       <div className="card-back">
