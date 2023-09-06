@@ -79,7 +79,7 @@ body {
 
 .cardContainer {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   padding: 16px;
   gap: 15px;
   place-items: center;
@@ -163,3 +163,109 @@ body {
 
 }
 
+.deleteButton {
+  width: 200px;
+  margin-top: 2px;
+  background-color: #145DA0;
+  color: #ffffff;
+  border: none;
+  border-radius: 10px;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 15px;
+  height: 80px;
+}
+
+.drinkButton {
+  width: 130px;
+  margin-top: 2px;
+  margin-right:2px;
+  background-color: #145DA0;
+  color: #ffffff;
+  border: black;
+  border-radius: 60px;
+  padding: 9px 20px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.randomButtons {
+  width: 50%;
+  margin: auto
+}
+
+.drinkButton:hover {
+  background-color: #2E8BC0;
+}
+
+.drinkButton:active {
+  background-color: #B1D4E0;
+}
+
+.deleteButton:hover {
+  background-color: #2E8BC0;
+
+}
+
+.deleteButton:active {
+  background-color: #B1D4E0;
+
+}
+
+.flipButton:hover {
+  background-color: #a8b8c9;
+}
+
+.flipButton:active {
+  background-color: #B1D4E0;
+}
+/* logo for app */
+.homepage { 
+  display: grid;
+  
+  height: 97.4vh;
+  background-position: center;
+  background-attachment: fixed;
+  background-repeat: none;
+  background-size: cover;
+  align-items: center;
+  justify-content: center;
+  background-image: url('https://cdn.luxe.digital/media/2020/06/07192740/best-cocktails-recipes-luxe-digital.jpg')
+}
+
+.logo {
+  margin-top: -270px;
+  margin-left: 190px;
+  color: white;
+  font-size: 78px;
+  font-weight: 100;
+  font-family: helvetica;
+  text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #332e31, 0 0 40px #010101, 0 0 50px #dadadf, 0 0 60px #2674cd, 0 0 70px #01fcf8;
+  
+}
+
+.homepage p{
+  margin-top: -140px;
+  position: absolute;
+  margin-left: 780px;
+  color: white;
+  font-family: helvetica;
+  font-size: 21px;
+  font-weight: 100;
+}
+
+.homepage a{
+  text-decoration: none;
+  color: white;
+}
+
+.homepage a:hover{
+  text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #332e31, 0 0 40px #010101, 0 0 50px #dadadf, 0 0 60px #2674cd, 0 0 70px #01fcf8;
+  font-size: 23px;
+  transition: 300ms;
+}
+
+.homepage p:hover{
+  font-size: 23px;
+  transition: 300ms;
+}
