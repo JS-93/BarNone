@@ -98,10 +98,12 @@ body {
   position: relative;
 }
 
+/* added CSS properties to card-front and card-back */
+ 
+
 .card-front,
 .card-back {
-  width: 200px;
-  height: 300px;
+  text-align: center;
   position: absolute;
   backface-visibility: hidden;
   transition: transform 1s ease;
@@ -109,6 +111,12 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  background-color: #8d949c;
+  border-radius: 15px;
+  height:320px;
+  width: 220px;
+  color:whitesmoke;
+  font-family: Verdana;
 }
 
 .card-front { 
