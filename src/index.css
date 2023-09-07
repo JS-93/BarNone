@@ -9,7 +9,7 @@ body {
 }
 
 .nav {
-  background-color: #525e6c;
+  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.9)); /* Washed black fade background */
   color: white;
   display: flex;
   justify-content: space-between;
@@ -27,37 +27,95 @@ body {
   gap: 1rem;
 }
 .nav a {
-  color: inherit;
+  color: white; /* White text color */
   text-decoration: none;
   height: 100%;
   align-items: center;
-  padding: .25rem;
+  padding: 0.25rem;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.5); /* White glow text shadow */
 }
 
 .siteTitle {
    font-size: 2rem;
 }
+/* form css */
+.formPage {
+  color: white;
+  background-position: center;
+  background-attachment: fixed;
+  background-repeat: none;
+  background-size: cover;
+  align-items: center;
+  justify-content: normal;
+  background-color: #030404;
+  background-image: url(https://data.1freewallpapers.com/download/light-bulbs-electricity-lighting-wall-1920x1440.jpg)
+}
 
-.form {
-  background-color: #ffffff;
+
+.formHeader {
   text-align: center;
-  padding: 20px;
-  border: none;
+  color: white;
+  font-size: 46px;
+  font-weight: 100;
+  font-family: helvetica;
+  text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #332e31, 0 0 40px #010101, 0 0 50px #dadadf, 0 0 60px #2674cd, 0 0 70px #01fcf8;
 }
 
-.text {
+.newDrinkForm{
+  display: grid;
+  gap: 5px;
+  justify-content: center;
+}
+
+.newDrinkForm label{
+  display: grid;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+}
+
+.newDrinkForm input, textarea{
+  text-align: center;
+  background: transparent;
+  border: 1px solid white;
+  color: white;
+  padding: 5px;
+ 
+}
+
+.formBackground{
+  background-color: rgba(0, 0, 0, 0.7);
   width: 50vw;
-  padding: 10px;
-  margin-bottom: 10px;
-  border: 1px solid #ccc;
-  border-radius: 10px;
-  font-size: 16px;
-  outline: none;
-  transition: border-color 0.3s ease-in-out;
+  margin: 0 auto;
+  padding: 25px;
+  margin-top: 25px;
+  border-radius: 30px;
+  font-family: helvetica;
+  font-weight: 100;
 }
 
-.text:focus{
-  border-color: #030404;
+.randomButtons{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50%;
+  margin: auto;
+}
+
+.addButton{
+  margin-top: 20px;
+  border: none;
+  color: white;
+  background: transparent;
+  font-size: 20px;
+  
+}
+
+.addButton:hover{
+  text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #332e31, 0 0 40px #010101, 0 0 50px #dadadf, 0 0 60px #2674cd, 0 0 70px #01fcf8;
+  font-size: 30px;
+  transition: 100ms ease-in-out;
+  cursor: pointer;
 }
 
 .button{
@@ -77,6 +135,15 @@ body {
   background-color: #a8b8c9
 }
 
+/* end form css */
+
+
+
+
+
+/* card css */
+
+
 .cardContainer {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -94,7 +161,6 @@ body {
   height: 400px;
   padding: 20px;
   border: none;
-  /* box-shadow: 0 8px 16px rgba(0,0,0,0.1); */
   position: relative;
 }
 
@@ -108,11 +174,10 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  /* background-color: #8d949c; */
   background-image: url('https://static.vecteezy.com/system/resources/previews/000/258/943/non_2x/modern-dark-texture-background-vector.jpg');
   border-radius: 15px;
   height:320px;
-  width: 220px;
+  width: 320px;
   color:whitesmoke;
   font-family: Verdana;
 }
@@ -163,16 +228,34 @@ body {
   
 }
 
-.card-back p {
+.flipButtonSearch {
   width: 200px;
-  height: 300px;
+  margin-top: 2px;
+  background-color: #525e6c;
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 16px;
+  margin-bottom: 12px;
+}
 
+.flipButtonSearch:hover{
+  background-color: #a8b8c9;
+}
+.card-back p {
+  width: 280px;
+  height: 280px;
+  overflow: auto;
+  scrollbar-color: #01fcf8;
+  margin-top: 0px;
 }
 
 .deleteButton {
   width: 200px;
   margin-top: 2px;
-  background-color: #145DA0;
+  background-color: #525e6c;
   color: #ffffff;
   border: none;
   border-radius: 10px;
@@ -186,7 +269,7 @@ body {
   width: 130px;
   margin-top: 2px;
   margin-right:2px;
-  background-color: #145DA0;
+  background-color: #525e6c;
   color: #ffffff;
   border: black;
   border-radius: 60px;
@@ -195,10 +278,7 @@ body {
   font-size: 14px;
 }
 
-.randomButtons {
-  width: 50%;
-  margin: auto
-}
+
 
 .drinkButton:hover {
   background-color: #2E8BC0;
@@ -225,23 +305,28 @@ body {
 .flipButton:active {
   background-color: #B1D4E0;
 }
-/* logo for app */
+
+/* end card css */
+
+
+/* homepage css */
 .homepage { 
-  display: grid;
-  
-  height: 97.4vh;
-  background-position: center;
-  background-attachment: fixed;
-  background-repeat: none;
-  background-size: cover;
+  display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
+  
+  height: 100vh;
+  width: 99vw;
+  background-position: center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: cover;
   background-image: url('https://cdn.luxe.digital/media/2020/06/07192740/best-cocktails-recipes-luxe-digital.jpg')
 }
 
 .logo {
-  margin-top: -270px;
-  margin-left: 190px;
+  margin-bottom: -20px;
   color: white;
   font-size: 78px;
   font-weight: 100;
@@ -251,12 +336,11 @@ body {
 }
 
 .homepage p{
-  margin-top: -140px;
-  position: absolute;
-  margin-left: 780px;
+  margin-bottom: 350px;
+  margin-left: 120px;
   color: white;
   font-family: helvetica;
-  font-size: 21px;
+  font-size: 17px;
   font-weight: 100;
 }
 
@@ -276,15 +360,16 @@ body {
   transition: 300ms;
 }
 
+/* end homepage css */
+
 /* css for menu */
 .menuContainer{
+  overflow-y: auto;
   margin: auto;
-  margin-top: 80px;
   height: 800px;
   width: 500px;
   color: white;
   border: none;
-  margin-left: 820px;
   position: relative;
   border-radius: 10px;
   font-family: sans-serif italic;
@@ -304,7 +389,7 @@ body {
 
 
 .menuTitle {
-  
+  margin-top: 3px;
   font-size: 25px;
   margin-left: 175px;
   padding: 15px;
@@ -317,6 +402,9 @@ body {
 }
 
 .background {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   position: fixed;
   top: 0;
   left: 0;
@@ -330,5 +418,72 @@ body {
 .menuItems{
   margin-top: 25px;
 }
+
+/* end menu css */
+
+/* searchbar css */
+
+
+.searchBackground{
+  background-image: url('https://images.rawpixel.com/image_800/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDIzLTA3L3Jhd3BpeGVsX29mZmljZV8zX3dvb2RfdGFibGVfaW5fY2FmZV9iYWNrZHJvcF8xNV9kZWdyZWVfYW5nbGVfY18wNGY5NGMwYi05NDYwLTQzNjUtOTNkNi0zOWVjNjdjZmZmM2MuanBn.jpg');
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed; 
+  height: 400vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  overflow-x: hidden;
+}
+
+.searchBar{
+  margin-top: 20px;
+  margin-bottom: 20px;
+  width: 600px;
+  top: 2%;
+  background: rgba(39, 35, 35, 0.2);
+  display: flex;
+  align-items: center;
+  border-radius: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+}
+
+.searchInput{
+  background: transparent;
+  width: 500px;
+  flex: 1;
+  border: none;
+  outline: none;
+  padding: 15px 20px;
+  font-size: 20px;
+  color: white;
+  
+}
+  ::placeholder{
+    color: white;
+}
+
+.searchButton{
+  padding: 10px 20px;
+  border: 0;
+  border-radius: 50%;
+  background: none;
+  color: white;
+}
+
+.searchCardContainer{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 230px;
+  margin-left: 230px;
+  place-items: start;
+  row-gap: 15px;
+  width: 100%;
+}
+
 
 
