@@ -5,9 +5,9 @@ return (
     <nav className="nav">
        <ul>
         <Link to="/">Home</Link>
-        <Link to="/about">About</Link>
-        <Link to="/form">Form</Link>
-        <Link to="/search">Search</Link>
+        <Link to="/about">Menu</Link>
+        <Link to="/form">Create Drink</Link>
+        <Link to="/search">Search Cocktail Ideas</Link>
     
     </ul>
     
