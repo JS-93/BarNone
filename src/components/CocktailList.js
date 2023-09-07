@@ -8,7 +8,7 @@ const cocktailList = cocktails.map((cocktail) => (
         cocktail={cocktail}/>
 ))
 
-return <div className="cardContainer">{cocktailList}</div>
+return <div className="searchCardContainer">{cocktailList}</div>
 }
 
 export default CocktailList
