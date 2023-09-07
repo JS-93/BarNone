@@ -52,4 +52,4 @@ The `CocktailCard` component displays details of a cocktail, including its name,
 - The "About" page displays a menu of cocktails fetched from a local server.
 - The "Home" page provides an introduction to the app.
 
-Enjoy discovering and crafting your favorite cocktails with the barNONE App!
+Enjoy discovering and crafting your favorite cocktails with the barNone App!
