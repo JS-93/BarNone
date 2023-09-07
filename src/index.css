@@ -111,11 +111,10 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  /* background-color: #8d949c; */
   background-image: url('https://static.vecteezy.com/system/resources/previews/000/258/943/non_2x/modern-dark-texture-background-vector.jpg');
   border-radius: 15px;
   height:320px;
-  width: 220px;
+  width: 320px;
   color:whitesmoke;
   font-family: Verdana;
 }
@@ -127,23 +126,27 @@ body {
 .card.flipped .card-front {
   transform: rotateY(180deg);
 }
-
+/* made card-back text larger and easier to read*/
 .card-back{
   transform: rotateY(180deg);
-  font-size: 60%;
-  
+  font-size: 14px;  
 }
 
 .card.flipped .card-back{
   transform: rotateY(360deg);
 }
   
+.backText {
+  background-color: rgb(0,0,0,0.5);
+  text-align: center;
+}
 
 
 .card h3 {
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-top: 12px;
 }
 
 .card img {
@@ -163,26 +166,44 @@ body {
   padding: 10px 20px;
   cursor: pointer;
   font-size: 16px;
-  
 }
 
-.card-back p {
-  width: 200px;
-  height: 300px;
-
-}
-
-.deleteButton {
+/* had to make seperate class of button to change margins on created drinks and search drinks, also chages on CocktailCard file */
+.flipButtonSearch {
   width: 200px;
   margin-top: 2px;
-  background-color: #145DA0;
-  color: #ffffff;
+  background-color: #525e6c;
+  color: #fff;
   border: none;
   border-radius: 10px;
   padding: 10px 20px;
   cursor: pointer;
+  font-size: 16px;
+  margin-bottom: 12px;
+}
+.card-back p {
+  width: 280px;
+  height: 280px;
+  overflow: auto;
+  scrollbar-color: #01fcf8;
+  margin-top: 0px;
+}
+/* added scrollbar if text is too large to avoid overflowing text */
+
+
+/* changed height and padding properties of delete button */
+
+.deleteButton {
+  width: 200px;
+  margin-top: 2px;
+  margin-bottom: 14px;
+  background-color: #145DA0;
+  color: #ffffff;
+  border: none;
+  border-radius: 10px;
+  padding: 6px 20px;
+  cursor: pointer;
   font-size: 15px;
-  height: 80px;
 }
 
 .drinkButton {

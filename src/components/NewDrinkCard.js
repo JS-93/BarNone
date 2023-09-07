@@ -53,14 +53,14 @@ const deleteDrink = () => {
       </div>
       <div className="card-back">
         <h3>{name}</h3>
-        <ul>
+        <ul className="backText"> 
           {ingredients.map(({ ingredient, measure }, index) => (
             <li key={index}>
               {ingredient} - {measure}
             </li>
           ))}
         </ul>
-        <p>{directions}</p>
+        <p className="backText">{directions}</p>
         <button className="flipButton" onClick={handleClick}>
           Flip Back
         </button>
@@ -69,5 +69,8 @@ const deleteDrink = () => {
     </div>
   );
 };
+
+//added class backText to <ul> and <p>//
+
 
 export default NewDrinkCard;
