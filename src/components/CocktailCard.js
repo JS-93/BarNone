@@ -27,19 +27,19 @@ for (let i=1; i<=15; i++) {
         <div className="card-front">
         <h3 >{strDrink}</h3>
         <img src={strDrinkThumb} alt={strDrink}/>
-        <button className="flipButton" onClick={handleClick}>Flip For More Info</button>
+        <button className="flipButtonSearch" onClick={handleClick}>Flip For More Info</button>
         </div>
         <div className="card-back">
             <h3>{strDrink}</h3>
-            <ul>
+            <ul className="backText">
             {ingredients.map(({ ingredient, measure }, index) => (
         <li key={index}>
             {ingredient} - {measure}
         </li>
     ))}    
             </ul>
-            <p>{cocktail.strInstructions}</p>
-            <button className="flipButton" onClick={handleClick}>Flip Back</button>
+            <p className="backText">{cocktail.strInstructions}</p>
+            <button className="flipButtonSearch" onClick={handleClick}>Flip Back</button>
 
         </div>
         </div>)
@@ -47,7 +47,6 @@ for (let i=1; i<=15; i++) {
 
 
 export default CocktailCard
-
 
 
 
