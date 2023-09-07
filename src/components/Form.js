@@ -294,26 +294,23 @@ const toggleForm = () => {
 
 
   return (
-    <div>
+    <div className="formPage">
       <button className="drinkButton" onClick={toggleForm}>{isFormVisible? "Hide Form" : "Show Form"}</button>
       {isFormVisible ? (
         
         <div className="randomButtons">
-        <button className="drinkButton" onClick={populateData}>Roll the Dice</button> 
-        <button className="drinkButton" onClick={populateVodka}>Vodka Drink</button> 
-        <button className="drinkButton" onClick={populateWhiskey}>Whiskey Drink</button> 
-        <button className="drinkButton" onClick={populateGin}>Gin Drink</button> 
-        <button className="drinkButton" onClick={populateRum}>Rum Drink</button> 
-        <button className="drinkButton" onClick={populateTequila}>Tequila Drink</button> 
-        <button className="drinkButton" onClick={populateMocktail}>Mocktail Drink</button> 
+        <button className="drinkButton" onClick={populateData}>Random</button> 
+        <button className="drinkButton" onClick={populateVodka}>Vodka</button> 
+        <button className="drinkButton" onClick={populateWhiskey}>Whiskey</button> 
+        <button className="drinkButton" onClick={populateGin}>Gin</button> 
+        <button className="drinkButton" onClick={populateRum}>Rum</button> 
+        <button className="drinkButton" onClick={populateTequila}>Tequila</button> 
+        <button className="drinkButton" onClick={populateMocktail}>Mocktail</button> 
         </div>) : null}
         {isFormVisible? (
-      <form onSubmit={handleFormSubmit}>
-        <h1>Create Your Own Drink!</h1>
-      <table>
-        <tbody>
-        <tr>
-          <td>
+          <div className="formBackground">
+      <form className="newDrinkForm" onSubmit={handleFormSubmit} >
+        <h1 className="formHeader">Create Your Own Drink!</h1>
             <label>
              Drink Name:
             </label>
@@ -323,155 +320,115 @@ const toggleForm = () => {
             value={formData.name}
             onChange={handleInputChange}
           />
-          </td>
-        </tr>
-        <tr>
-          <td>
+        
             <label>
-          Ingredient One:
-          <textarea
+          Ingredient One:  </label>
+          <input
             name="ingredientOne"
             value={formData.ingredientOne}
             onChange={handleInputChange}
           />
-            </label>
-         </td>
-        </tr>
-        <tr>
-          <td>
+          
+       
             <label>
-          Measurement One:
-          <textarea
+          Measurement One:</label>
+          <input
             name="measurementOne"
             value={formData.measurementOne}
             onChange={handleInputChange}
           />
-            </label>
-          </td>
-        </tr>
-        <tr>
-          <td>
+           
+          
             <label>
-          Ingredient Two:
-          <textarea
+          Ingredient Two:  </label>
+          <input
             name="ingredientTwo"
             value={formData.ingredientTwo}
             onChange={handleInputChange}
           />
-            </label>
-         </td>
-        </tr>
-        <tr>
-          <td>
+       
+        
             <label>
-          Measurement Two:
-          <textarea
+          Measurement Two: </label>
+          <input
             name="measurementTwo"
             value={formData.measurementTwo}
             onChange={handleInputChange}
           />
-            </label>
-          </td>
-        </tr>
-         <tr>
-          <td>
+           
+         
             <label>
-          Ingredient Three:
-          <textarea
+          Ingredient Three:</label>
+          <input
             name="ingredientThree"
             value={formData.ingredientThree}
             onChange={handleInputChange}
           />
-            </label>
-         </td>
-        </tr>
-        <tr>
-          <td>
+           
+         
             <label>
-          Measurement Three:
-          <textarea
+          Measurement Three:</label>
+          <input
             name="measurementThree"
             value={formData.measurementThree}
             onChange={handleInputChange}
           />
-            </label>
-          </td>
-        </tr>
-        <tr>
-          <td>
+           
+         
             <label>
-          Ingredient Four:
-          <textarea
+          Ingredient Four: </label>
+          <input
             name="ingredientFour"
             value={formData.ingredientFour}
             onChange={handleInputChange}
           />
-            </label>
-         </td>
-        </tr>
-        <tr>
-          <td>
+            
+        
             <label>
-          Measurement Four:
-          <textarea
+          Measurement Four:</label>
+          <input
             name="measurementFour"
             value={formData.measurementFour}
             onChange={handleInputChange}
           />
-            </label>
-          </td>
-        </tr><tr>
-          <td>
+            
+         
             <label>
-          Ingredient Five:
-          <textarea
+          Ingredient Five:</label>
+          <input
             name="ingredientFive"
             value={formData.ingredientFive}
             onChange={handleInputChange}
           />
-            </label>
-         </td>
-        </tr>
-        <tr>
-          <td>
+            
+       
             <label>
-          Measurement Five:
-          <textarea
+          Measurement Five:</label>
+          <input
             name="measurementFive"
             value={formData.measurementFive}
             onChange={handleInputChange}
           />
-            </label>
-          </td>
-        </tr>
-        <tr>
-          <td>
+             
+         
             <label>
-          Directions:
+          Directions: </label>
           <textarea
             name="directions"
             value={formData.directions}
             onChange={handleInputChange}
           />
-            </label>
-          </td>
-        </tr>
-        <tr>
-          <td>
+         
             <label>
-          ImageUrl:
-          <textarea
+          ImageUrl:</label>
+          <input
             name="imageUrl"
             value={formData.imageUrl}
             onChange={handleInputChange}
           />
-            </label>
-          </td>
-        </tr>
-        </tbody>
-        </table>
-        <button type="submit">Add Drink</button>
-      </form>) : null} 
+        <button className="addButton" type="submit">Add Drink</button>
+      </form></div>) : null} 
+      
       <CreatedDrinks cocktails={cocktails} setCocktails={setCocktails} onDelete={handleDelete}/>
     </div>
   );
