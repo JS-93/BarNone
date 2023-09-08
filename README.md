@@ -1,70 +1,55 @@
-# Getting Started with Create React App
+# barNone App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Welcome to the barNone App! Our web application allows users to discover and craft their own cocktail. Below, we'll explain the functionality of each component in the project.
 
-## Available Scripts
+## Components
 
-In the project directory, you can run:
+### App
+The `App` component serves as the main entry point for the application. It handles routing and contains the navigation bar (`NavBar`). The `App` component manages the state for searching cocktails and fetching cocktail data from an external API (`https://www.thecocktaildb.com`).
 
-### `npm start`
+### NavBar
+The `NavBar` component provides navigation links to different sections of the app, including Home, About, Search, and Form.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### Home
+The `Home` component displays the home page with the app's logo and a brief description of its features.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### About
+The `About` component displays a drink menu. It fetches cocktail data from a local server and passes it to the `Menu` component for rendering.
 
-### `npm test`
+### Menu
+The `Menu` component receives a list of cocktails and displays them in a list format. Each menu item links to more details about the cocktail.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### MenuItem
+The `MenuItem` component takes a single cocktail and displays its name along with a unique set of ingredients. It ensures that ingredients are not repeated for the same cocktail.
 
-### `npm run build`
+### Search
+The `Search` component allows users to search for cocktails by name. Users can enter a cocktail name, and upon submission, it queries an external API (`https://www.thecocktaildb.com`) to retrieve matching cocktails. The search results are displayed using the `CocktailList` component. If no cocktails match the search query, it displays an error message.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### CocktailList
+The `CocktailList` component receives a list of cocktails and renders them using the `CocktailCard` component. It is used to display search results in the `Search` component.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Form
+The `Form` component allows users to craft their own custom cocktails. Users can input details such as the cocktail's name, ingredients, measurements, directions, and an image URL. Upon submission, the new cocktail is sent to a local server, and the list of created drinks is updated in the `CreatedDrinks` component.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### CreatedDrinks
+The `CreatedDrinks` component displays a list of user-created cocktails. Users can delete a cocktail by clicking the "Delete" button. 
 
-### `npm run eject`
+### NewDrinkCard
+The `NewDrinkCard` component is used to display user-created cocktails in a card format. It can be flipped to reveal more details about the cocktail. Users can also delete the cocktail using the "Delete" button.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### CocktailCard
+The `CocktailCard` component displays details of a cocktail, including its name, image, ingredients, measurements, and instructions. It can be flipped to reveal additional information.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Usage
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+- Install the dependecies first and foremost using `npm install`.
+- Start up the JSON Server by typing this command into your terminal: json-server --watch db.json. 
+    - JSON server should be: "http://localhost:3000/createdDrinks"
+- Start the application using `npm start`.
+- Use the nav bar to explore different sections of the app.
+- On the "Form" page, you can craft your own cocktails by providing details and submitting the form.
+- On the "Search" page, you can search for cocktails by name and view the search results.
+- The "About" page displays a menu of cocktails fetched from a local server.
+- The "Home" page provides an introduction to the app.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Enjoy discovering and crafting your favorite cocktails with the barNone App!
