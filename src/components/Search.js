@@ -12,10 +12,10 @@ const Search = ({ handleSearch, handleChange, search, cocktails, searchMade }) =
        <form className="searchBar" onSubmit={handleSearch}>
         <input className="searchInput" placeholder="Please enter a cocktail name..." value={search} onChange={handleChange} type="text"></input>
         <input className="searchButton" type="submit" value="Search Cocktail"></input>
-       </form>
+       </form><div className="gridWrapper">
        <div className="searchCardContainer">
-       {(searchMade && cocktails.length === 0) ? (<p>Please enter correct cocktail info</p>) : (<div><CocktailList cocktails={cocktails}/></div>)}
-       </div>
+       {(searchMade && cocktails.length === 0) ? (<p className="searchError">Please enter correct cocktail info!</p>) : (<div><CocktailList cocktails={cocktails}/></div>)}
+       </div></div>
        </div>
        </>
     )
