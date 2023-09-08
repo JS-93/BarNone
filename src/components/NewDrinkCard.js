@@ -49,9 +49,10 @@ const deleteDrink = () => {
         <button className="flipButton" onClick={handleClick}>
           Flip For More Info
         </button>
-        <button className="deleteButton" onClick={deleteDrink}> Delete 🗑️</button>
+        <button className="deleteButton" onClick={deleteDrink}>🗑️</button>
       </div>
       <div className="card-back">
+        <div className="infoWrapper">
         <h3>{name}</h3>
         <ul className='backText'>
           {ingredients.map(({ ingredient, measure }, index) => (
@@ -60,15 +61,14 @@ const deleteDrink = () => {
             </li>
           ))}
         </ul>
-        <p className='backText'>{directions}</p>
+        <p className='backText'>{directions}</p></div>
         <button className="flipButton" onClick={handleClick}>
           Flip Back
         </button>
-          <button className="deleteButton" onClick={deleteDrink}> Delete 🗑️</button>  
+          <button className="deleteButton" onClick={deleteDrink}>🗑️</button>  
       </div>
     </div>
   );
 };
 
 export default NewDrinkCard;
-
