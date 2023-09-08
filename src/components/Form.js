@@ -129,7 +129,7 @@ const populateData = () => {
     measurementFour: getRandomMeasurement(),
     ingredientFive: getRandomIngredient(),
     measurementFive: getRandomMeasurement(),
-    directions: "Shake well and enjoy...",
+    directions: "Shake well and enjoy...?",
     imageUrl: "https://pbs.twimg.com/media/B8XK3E_IIAAjpWN.png",
 
   }
@@ -229,7 +229,7 @@ const populateRum = () => {
     ingredientFive: getRandomRum(),
     measurementFive: getRandomMeasurement(),
     directions: "Shake well and enjoy...",
-    imageUrl: "https://www.liquor.com/thmb/dxEIgDSkmAAUbWzJ9yi8Ws_J-v8=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/mai-tai-720x720-primary-e09e24f1cacd4b3896f5aa32ba51dcdd.jpg",
+    imageUrl: "https://drinkoteket.com/wp-content/uploads/jungle-bird.jpg",
     }
     setFormData(randomData)
 
@@ -253,7 +253,7 @@ const populateTequila = () => {
     ingredientFive: getRandomTequila(),
     measurementFive: getRandomMeasurement(),
     directions: "Shake well and enjoy...",
-    imageUrl: "https://nibblesandfeasts.com/wp-content/uploads/2020/07/Jarritos-4.jpg",
+    imageUrl: "https://m.media-amazon.com/images/I/81x+K9XZAZL._AC_UF350,350_QL80_.jpg",
     }
     setFormData(randomData)
 
@@ -295,7 +295,8 @@ const toggleForm = () => {
 
   return (
     <div className="formPage">
-      <button className="drinkButton" onClick={toggleForm}>{isFormVisible? "Hide Form" : "Show Form"}</button>
+      <div className="toggle">
+      <button className="toggleButton" onClick={toggleForm}>{isFormVisible? "Hide Form" : "Show Form"}</button></div>
       {isFormVisible ? (
         
         <div className="randomButtons">
@@ -435,4 +436,3 @@ const toggleForm = () => {
 };
 
 export default Form;
-
