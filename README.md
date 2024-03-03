@@ -45,7 +45,7 @@ The `CocktailCard` component displays details of a cocktail, including its name,
 - Install the dependecies first and foremost using `npm install`.
 - Start up the JSON Server by typing this command into your terminal: json-server --watch db.json. 
     - JSON server should be: "http://localhost:3000/createdDrinks"
-- Start the application using `npm start`.
+- Start the application using `npm run dev`.
 - Use the nav bar to explore different sections of the app.
 - On the "Form" page, you can craft your own cocktails by providing details and submitting the form.
 - On the "Search" page, you can search for cocktails by name and view the search results.
