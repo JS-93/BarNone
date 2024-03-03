@@ -1,9 +1,10 @@
+import { useState } from 'react'
 import NavBar from "./components/NavBar";
 import Form from "./components/Form";
 import About from "./components/About";
 import Home from "./components/Home";
 import Search from "./components/Search";
-import { useState } from 'react'
+
 
 import { Route, Routes } from 'react-router-dom'
 
@@ -61,8 +62,10 @@ function App() {
           />}/>
           <Route path="/form" element={<Form/>}/>
         </Routes>
-    </div></>
-  );
+    </div></>)
+  
+
+
 }
 
-export default App;
+export default App

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import CreatedDrinks from "./CreatedDrinks";
-import { ingredientList, alcoholList, nameList, vodkaList, whiskeyList, ginList, rumList, tequilaList, mocktailList } from "../ingredients";
+import { ingredientList, alcoholList, nameList, vodkaList, whiskeyList, ginList, rumList, tequilaList, mocktailList } from "../ingredients.cjs";
 
 
 const Form = () => {

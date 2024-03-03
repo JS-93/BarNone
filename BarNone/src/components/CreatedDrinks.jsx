@@ -1,8 +1,5 @@
-import React from "react";
+
 import NewDrinkCard from "./NewDrinkCard";
-
-
-
 
 const CreatedDrinks = ({cocktails, onDelete}) => {
 

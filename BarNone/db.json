@@ -1,0 +1,52 @@
+{
+  "createdDrinks": [
+    {
+      "name": "Mocktail Drink",
+      "ingredientOne": "Pineapple Juice",
+      "measurementOne": "1oz",
+      "ingredientTwo": "Fresh Rosemary",
+      "measurementTwo": "3oz",
+      "ingredientThree": "Pineapple Juice",
+      "measurementThree": "1oz",
+      "ingredientFour": "Lemon Slices",
+      "measurementFour": "3oz",
+      "ingredientFive": "Honey",
+      "measurementFive": "2oz",
+      "directions": "Shake well and enjoy...",
+      "imageUrl": "https://images.immediate.co.uk/production/volatile/sites/30/2020/04/mocktail-3b9ab7d.jpg",
+      "id": 4
+    },
+    {
+      "name": "Vodka Drink",
+      "ingredientOne": "Vodka",
+      "measurementOne": "1oz",
+      "ingredientTwo": "Mint Leaves",
+      "measurementTwo": "3oz",
+      "ingredientThree": "Cranberry Juice",
+      "measurementThree": "2oz",
+      "ingredientFour": "Pineapple Juice",
+      "measurementFour": "2oz",
+      "ingredientFive": "Ginger Beer",
+      "measurementFive": "1oz",
+      "directions": "Shake well and enjoy...",
+      "imageUrl": "https://www.cookinginmygenes.com/wp-content/uploads/2020/11/citrus-crush-vodka-cocktail-5057-500x500.jpg",
+      "id": 6
+    },
+    {
+      "name": "Whiskey Drink",
+      "ingredientOne": "Whiskey",
+      "measurementOne": "3oz",
+      "ingredientTwo": "Angostura Bitters",
+      "measurementTwo": "1oz",
+      "ingredientThree": "Peach Schnapps",
+      "measurementThree": "1oz",
+      "ingredientFour": "Peach Schnapps",
+      "measurementFour": "1oz",
+      "ingredientFive": "Apple Schnapps",
+      "measurementFive": "1oz",
+      "directions": "Stir well and enjoy...",
+      "imageUrl": "https://assets.epicurious.com/photos/5e41a6d175661800087cc87c/16:9/w_4619,h_2598,c_limit/OldFashioned_HERO_020520_619.jpg",
+      "id": 7
+    }
+  ]
+}

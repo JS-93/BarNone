@@ -13,7 +13,7 @@ const MenuItem = ({cocktail}) => {
     let ingredients = [...ingredientSet]
 
    return (<div className="menuItems">
-    {/* join makes sure the strings in the array are separated by comma and space */}
+
     <p>{name}----------{ingredients.join(", ")}</p> 
     
     </div>)

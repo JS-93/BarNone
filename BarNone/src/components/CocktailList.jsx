@@ -1,4 +1,4 @@
-import React from "react"
+
 import CocktailCard from "./CocktailCard"
 
 const CocktailList = ({ cocktails }) => {
